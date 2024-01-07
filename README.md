@@ -1,42 +1,31 @@
 # Microschool-DataPi
 
-# Idea  
-- Microdot을 이용한 Web Server
-```python
-from microdot import Microdot
-
-app = Microdot()
-
-htmldoc = '''<!DOCTYPE html>
-<html>
-    <head>
-        <title>Microdot Example Page</title>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <div>
-            <h1>Microdot Example Page</h1>
-            <p>Hello from Microdot!</p>
-            <p><a href="/shutdown">Click to shutdown the server</a></p>
-        </div>
-    </body>
-</html>
-'''
+# Requirements
+1. 온도 측정 
+2. 데이터 저장 
+3. 무선연결
+4. 휴대성 
+5. 정확한 시간 측정 
 
 
-@app.route('/')
-def hello(request):
-    return htmldoc, 200, {'Content-Type': 'text/html'}
+# Specifications  
+1. Processor : Rasberry pi RP2040 (dual ATM Cortex-M0, 256KB RAM   
+2. GPIO pin: 30
+3. Wireless : Infineon CYW43439 2.4GHz 802.11n Wireless LAN and Bluetooth
+4. Sensor (One Wire)  
+    a. [DS18B20](https://www.analog.com/media/en/technical-documentation/data-sheets/ds18b20.pdf)
+5. RTC (I2C)  
+    a. [DS3231](https://www.analog.com/media/en/technical-documentation/data-sheets/ds3231.pdf)
 
+## Option  
+1. Display : SSD1306 
+2. I2C connect
 
-@app.route('/shutdown')
-def shutdown(request):
-    request.app.shutdown()
-    return 'The server is shutting down...'
-
-
-app.run(debug=True)
-```
+## Curriculum
+1. 입력과 출력 
+2. 센서 수집 
+3. 무선연결 
+4. 데이터 시각화 
 
 
 # 참고
